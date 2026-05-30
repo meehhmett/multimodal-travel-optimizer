@@ -266,8 +266,9 @@ Sistem yalnızca seçilen tarihleri değil;
 - ±2 gün
 - Daha kısa konaklama
 - Daha uzun konaklama
-- Ay geçişli seyahatler
+- Farklı aylara taşan seyahat tarihleri
 
+  
 gibi alternatifleri de değerlendirerek daha avantajlı seçenekler sunar.
 
 ### Akıllı Arama Sistemi
