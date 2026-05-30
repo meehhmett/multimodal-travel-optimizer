@@ -1,73 +1,322 @@
-# React + TypeScript + Vite
+# Multimodal Travel Optimizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A smart travel planning platform that compares flights, trains, buses, nearby airports, and flexible travel dates to discover the most efficient and cost-effective travel routes.
 
-Currently, two official plugins are available:
+Unlike traditional flight search engines, this project evaluates multimodal transportation options and alternative travel dates to uncover routes that may be significantly cheaper or more convenient.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Smart Route Optimization
 
-## Expanding the ESLint configuration
+- Direct flight search
+- Nearby airport discovery
+- Alternative departure airports
+- Alternative arrival airports
+- Flight + Train combinations
+- Flight + Bus combinations
+- Multimodal route recommendations
+- Cost and duration comparison
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Flexible Date Search
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Instead of evaluating only the exact dates selected by the user, the optimizer can also analyze:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Departure ±1 day
+- Departure ±2 days
+- Return ±1 day
+- Return ±2 days
+- Cross-month travel periods
+- Longer stays
+- Shorter stays
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+This allows travelers to discover more affordable and optimized travel options.
+
+### Airport-Aware Search
+
+Cities with multiple airports are handled individually.
+
+Example:
+
+- Istanbul Airport (IST)
+- Sabiha Gökçen Airport (SAW)
+
+Users can either select a specific airport or allow the optimizer to evaluate all available airports.
+
+### Intelligent Search Interface
+
+- Real-time autocomplete
+- Airport code suggestions
+- Country information
+- Airport information
+- Fast destination filtering
+
+### Route Comparison
+
+Routes are compared using:
+
+- Total cost
+- Total travel duration
+- Number of transfers
+- Transportation type
+- Airport accessibility
+- Travel flexibility
+
+---
+
+## Example Scenario
+
+### User Input
+
+- Origin: Istanbul
+- Destination: Paris
+- Dates: June 10 – June 17
+
+### Optimizer Results
+
+#### Option 1
+
+- Istanbul (IST) → Paris (CDG)
+- Direct Flight
+- €220
+
+#### Option 2
+
+- Istanbul (SAW) → Brussels (BRU)
+- Flight
+- Brussels → Paris
+- Train
+- €145
+
+#### Option 3
+
+- Istanbul → Sofia
+- Bus
+- Sofia → Paris
+- Flight
+- €120
+
+The optimizer ranks routes according to overall value and efficiency.
+
+---
+
+## Screenshots
+
+### Home Page
+
+Main search interface where users select departure city, destination, and travel dates.
+
+![Home Page](screenshots/home.png)
+
+---
+
+### Airport Search & Autocomplete
+
+Autocomplete system displaying matching cities and airport codes while typing.
+
+![Airport Search](screenshots/autocomplete.png)
+
+---
+
+### Route Search Results
+
+List of generated travel options with pricing and duration information.
+
+![Search Results](screenshots/results.png)
+
+---
+
+### Route Comparison
+
+Comparison between direct flights and multimodal alternatives.
+
+![Comparison](screenshots/comparison.png)
+
+---
+
+### Route Details
+
+Detailed route breakdown showing every transportation step.
+
+![Route Details](screenshots/details.png)
+
+---
+
+### Flexible Date Optimization
+
+Alternative travel dates analyzed by the optimizer.
+
+![Flexible Dates](screenshots/flexible-dates.png)
+
+---
+
+## Sample Dataset
+
+The project currently includes:
+
+- 40+ cities
+- 50+ airports
+- Flight routes
+- Bus routes
+- Train routes
+- Airport metadata
+- Route combinations
+
+This dataset is intended for testing and demonstration purposes.
+
+---
+
+## Technology Stack
+
+### Frontend
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+
+### Backend
+
+- Firebase
+
+### Hosting
+
+- Firebase Hosting
+
+---
+
+## Project Structure
+
+```text
+src/
+├── components/
+├── pages/
+├── services/
+├── data/
+├── hooks/
+├── utils/
+├── types/
+└── assets/
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Installation
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/meehhmett/multimodal-travel-optimizer.git
+
+cd multimodal-travel-optimizer
+
+npm install
+
+npm run dev
 ```
+
+---
+
+## Future Improvements
+
+- Real-time flight APIs
+- Real-time train APIs
+- Real-time bus APIs
+- Hotel integration
+- AI-powered route recommendations
+- Carbon footprint calculations
+- User accounts
+- Saved trips
+- Travel alerts
+- Mobile application
+
+---
+
+# Türkçe
+
+## Multimodal Travel Optimizer Nedir?
+
+Multimodal Travel Optimizer, kullanıcıların en uygun seyahat rotalarını bulabilmesi için uçak, tren ve otobüs alternatiflerini birlikte değerlendiren akıllı bir seyahat planlama platformudur.
+
+Geleneksel uçuş arama sistemlerinden farklı olarak sistem:
+
+- Yakın havalimanlarını değerlendirir
+- Uçak + tren kombinasyonlarını inceler
+- Uçak + otobüs kombinasyonlarını inceler
+- Esnek tarih araması yapar
+- Daha uygun maliyetli alternatif rotalar bulabilir
+
+---
+
+## Özellikler
+
+### Akıllı Rota Optimizasyonu
+
+- Direkt uçuş arama
+- Yakın havalimanı desteği
+- Çoklu havalimanı karşılaştırması
+- Uçak + tren kombinasyonları
+- Uçak + otobüs kombinasyonları
+- Maliyet ve süre optimizasyonu
+
+### Esnek Tarih Arama
+
+Sistem yalnızca seçilen tarihleri değil;
+
+- ±1 gün
+- ±2 gün
+- Daha kısa konaklama
+- Daha uzun konaklama
+- Ay geçişli seyahatler
+
+gibi alternatifleri de değerlendirerek daha avantajlı seçenekler sunar.
+
+### Akıllı Arama Sistemi
+
+Şehir veya havalimanı yazılırken:
+
+- Otomatik tamamlama
+- Havalimanı kodları
+- Ülke bilgileri
+- Hızlı filtreleme
+
+özellikleri sağlanır.
+
+---
+
+## Kullanılan Teknolojiler
+
+### Frontend
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+
+### Backend
+
+- Firebase
+
+### Hosting
+
+- Firebase Hosting
+
+---
+
+## Gelecekte Eklenebilecek Özellikler
+
+- Gerçek zamanlı uçuş verileri
+- Gerçek zamanlı tren verileri
+- Gerçek zamanlı otobüs verileri
+- Otel entegrasyonu
+- Yapay zeka destekli rota önerileri
+- Karbon ayak izi hesaplama
+- Kullanıcı hesapları
+- Kaydedilmiş seyahatler
+- Seyahat bildirimleri
+- Mobil uygulama desteği
+
+---
+
+## License
+
+MIT License
