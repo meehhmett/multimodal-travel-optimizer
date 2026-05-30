@@ -320,4 +320,4 @@ gibi alternatifleri de değerlendirerek daha avantajlı seçenekler sunar.
 
 ## License
 
-MIT License
+No License for now
